@@ -1,39 +1,44 @@
 body {
-	background: black;
-	/* display: flex; */
-	/* justify-content: center; */
-    padding: 200px 300px 300px 200px;
-    /* display: inline-block; */
-    position: absolute;
-    
-
-
+  /* background: black; */
+  background-image: url("flag.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: inline-block;
+  position: absolute;
+  padding-left: 30px;
 }
 
 p {
-    font-size: 40pt;
-    text-transform: uppercase;
-    color: chartreuse;
-    padding-top: 4px;
-    align-content: center;
-    
+  font-size: 40pt;
+  text-transform: uppercase;
+  color: chartreuse;
+  padding-top: 4px;
+  align-content: center;
+}
+
+img {
+  margin: 30px;
 }
 
 #clock-container {
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(61,92,149,1) 50%, rgba(166,0,255,1) 82%); 
-	color: aliceblue;
-	position: absolute;
-	align-content: center;
-	display: flex;
-	flex-direction: row;
-	padding: 45px;
-    font-size: 80pt;
-    font-style: normal;
-    font-weight: 200;
-    text-shadow: 2.5px 2.5px black;
-    border: 10px solid whitesmoke;
-    border-radius: 10px 10px 10px 10px;
-    justify-content: center;
-    
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(61, 92, 149, 1) 50%,
+    rgba(166, 0, 255, 1) 82%
+  );
+  color: aliceblue;
+  position: absolute;
+  align-content: center;
+  display: flex;
+  flex-direction: row;
+  padding: 45px;
+  font-size: 80pt;
+  font-style: normal;
+  font-weight: 200;
+  text-shadow: 2.5px 2.5px black;
+  border: 10px solid whitesmoke;
+  border-radius: 10px 10px 10px 10px;
+  justify-content: center;
 }

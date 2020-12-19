@@ -1,33 +1,34 @@
 function showTime() {
-    //  Date Object to hold value of current date
-            let date = new Date();
-            
-            // Hours , Mins, Secs properties of the date object
-            let hour = date.getHours();
-            let min = date.getMinutes();
-            let sec = date.getSeconds();
+  //  Date Object to hold value of current date
+  let date = new Date();
 
-            if (hour > 12) {
-                hour -= 12; 
-            }
+  // Hours , Mins, Secs properties of the date object
+  let hour = date.getHours();
+  let min = date.getMinutes();
+  let sec = date.getSeconds();
+  let am_pm = "";
 
-            if (min < 10) {
-                min = "0" + min;
-            }
+  if (hour > 12) {
+    hour -= 12;
+    am_pm = "PM";
+  } else {
+    am_pm = "AM";
+  }
 
-            if (sec < 10) {
-                sec = "0" + sec;
-            }
+  if (min < 10) {
+    min = "0" + min;
+  }
 
-            // Cuurent time
-            let time = hour + ":" + min + ":" + sec;
-            document.getElementById("clock-container").innerText = time;
-            document.getElementById("clock-container").textContent = time;
-            
-            setTimeout(showTime, 1000);
-    }
+  if (sec < 10) {
+    sec = "0" + sec;
+  }
 
-   
-    showTime();
+  // Cuurent time
+  let time = hour + ":" + min + ":" + sec + " " + am_pm;
+  document.getElementById("clock-container").innerText = time;
+  document.getElementById("clock-container").textContent = time;
 
+  setTimeout(showTime, 1000);
+}
 
+showTime();
