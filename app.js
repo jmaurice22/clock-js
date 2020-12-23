@@ -11,6 +11,9 @@ function showTime() {
   if (hour > 12) {
     hour -= 12;
     am_pm = "PM";
+  } else if (hour == "00") {
+    hour = "12";
+    am_pm = "AM";
   } else {
     am_pm = "AM";
   }

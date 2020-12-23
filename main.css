@@ -9,16 +9,14 @@ body {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  align-items: center;
 }
 
 p {
   font-size: 40pt;
   text-transform: uppercase;
   color: chartreuse;
-  padding-bottom:  54px;
+  padding-bottom: 54px;
   align-content: center;
-  
 }
 
 img {
