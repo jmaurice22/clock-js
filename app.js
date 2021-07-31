@@ -1,3 +1,61 @@
+window.onload = () => {
+  getCoordintes();
+  showTime();
+}
+
+// Step 1: Get user coordinates
+function getCoordintes() {
+	var options = {
+		enableHighAccuracy: true,
+		timeout: 5000,
+		maximumAge: 0
+	};
+
+	function success(pos) {
+		var crd = pos.coords;
+		var lat = crd.latitude.toString();
+		var lng = crd.longitude.toString();
+		var coordinates = [lat, lng];
+		console.log(`Latitude: ${lat}, Longitude: ${lng}`);
+		getCity(coordinates);
+		return;
+
+	}
+
+	function error(err) {
+		console.warn(`ERROR(${err.code}): ${err.message}`);
+	}
+
+	navigator.geolocation.getCurrentPosition(success, error, options);
+}
+
+// Step 2: Get city name
+function getCity(coordinates) {
+	var xhr = new XMLHttpRequest();
+	var lat = coordinates[0];
+	var lng = coordinates[1];
+
+	// Paste your LocationIQ token below.
+	xhr.open('GET', "https://us1.locationiq.com/v1/reverse.php?key=pk.7d8922d3391a263efcedea2ea91feb62&lat=" +
+	lat + "&lon=" + lng + "&format=json", true);
+	xhr.send();
+	xhr.onreadystatechange = processRequest;
+	xhr.addEventListener("readystatechange", processRequest, false);
+
+	function processRequest(e) {
+		if (xhr.readyState == 4 && xhr.status == 200) {
+			var response = JSON.parse(xhr.responseText);
+			var city = response.address.city;
+			console.log(city);
+      document.getElementById('city').textContent = city;
+			return;
+		}
+	}
+}
+
+
+
+
 function showTime() {
   //  Date Object to hold value of current date
   let date = new Date();
@@ -26,12 +84,10 @@ function showTime() {
     sec = "0" + sec;
   }
 
-  // Cuurent time
+
   let time = hour + ":" + min + ":" + sec + " " + am_pm;
   document.getElementById("clock-container").innerText = time;
-  document.getElementById("clock-container").textContent = time;
 
   setTimeout(showTime, 1000);
 }
 
-showTime();
