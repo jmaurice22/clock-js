@@ -1,3 +1,1 @@
-This project is created using Javascript. 
-
-Time is based on Arizona time.
+Simple Digital clock to display location and current time
